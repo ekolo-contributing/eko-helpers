@@ -1,0 +1,13 @@
+{
+    "name": "ekolo/eko-helpers",
+    "description": "Contient des fonctions",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Don de Dieu BOLENGE",
+            "email": "dondedieubolenge@gmail.com"
+        }
+    ],
+    "require": {}
+}
