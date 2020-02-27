@@ -1,6 +1,7 @@
 {
     "name": "ekolo/eko-helpers",
     "description": "Contient des fonctions",
+    "keywords": ["helpers", "eko-helpers", "eko", "ekolo"],
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -9,5 +10,10 @@
             "email": "dondedieubolenge@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "php": ">=7.0"
+    },
+    "autoload": {
+        "files": ["src/helpers.php"]
+    }
 }
