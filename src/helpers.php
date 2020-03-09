@@ -56,3 +56,28 @@
             return false;
         }
     }
+
+    if (!function_exists('is_tel')) {
+        /**
+         * Véririfie si c'est un numéro de téléphone
+         * @param mixed $tel Le numéro de téléphone à vérifier
+         * @return bool
+         */
+		function is_tel($tel) {
+			if (is_numeric($tel)) {
+				if (strlen($tel) <= 15) {
+                    if (preg_match('#^\+([1-9]){1}([0-9]){11,}#', $tel)) {
+                        return true;
+                    }
+
+                    if (strlen($tel) === 10) {
+                        if (preg_match('#^0([1-9]){1}([0-9]){8}#', $tel)) {
+                            return true;
+                        }
+                    }
+                }
+			}
+			
+			return false;
+		}
+	}
