@@ -80,4 +80,36 @@
 			
 			return false;
 		}
+    }
+    
+    /**
+	 * Fonction de hashage de mot de passe via Blowfish algorithme 
+	 * @param string|integer $value La valeur (mot de passe) à crypter
+	 * @param array $option Les options du cryptage
+	 * @return string $hash La valeur du mot de passe hashée
+	 */
+	if (!function_exists('bcrypt_hash_password')) {
+		function bcrypt_hash_password($value, $option = array()){
+
+			$cost = isset($option['round'])? $option['round']:10;
+			$hash = password_hash($value, PASSWORD_BCRYPT, array('cost',$cost));
+			if ($hash === false) {
+				throw new Exception("Bcrypt hashing n'est pas supporté");
+				
+			}
+			return $hash;
+		}
 	}
+
+	/**
+	 * Fonction de Vérification de hashage de mot de passe
+	 * @param string|integer $value La valeur de mot de passe à vérifier
+	 * @param string $hashvalue La valeur du mot de passe qui était hashée
+	 * @return bool
+	 */
+	if (!function_exists('bcrypt_verify_password')) {
+		function bcrypt_verify_password($value, string $hashedvalue){
+
+			return password_verify($value, $hashedvalue);
+		}
+    }
